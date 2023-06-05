@@ -1,0 +1,75 @@
+#app {
+    /* https://webukatu.com/wordpress/blog/11208/#Flexboxfooter */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+[v-cloak] {
+    display: none;
+}
+#header-area {
+    position: relative;
+    background-image: url('../storage/images/note.jpg');
+    background-size: cover;
+    height: 25vh;
+}
+#header-area h1 {
+    position: absolute;     /* parentに対してabsolute */
+    top: 50%;
+    left: 50%;
+    font-weight: bold;
+    transform: translate(-50%,-50%);
+    margin:0;
+    padding:0;
+}
+#header-area p {
+    position: absolute;     /* 親に対してabsolute */
+    top: 70%;
+    left: 50%;
+    font-weight: bold;
+    transform: translate(-50%,-70%);
+    margin:0;
+    padding:0;
+    opacity: 0.5;
+}
+#header-area img {
+    width: 100%;
+    height: 100%;
+}
+#main-area section {
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+#paperless-img {
+    width: 50%;
+}
+#review-img {
+    width: 50%;
+}
+#diary-img {
+    width: 50%;
+}
+#output-img {
+    width: 50%;
+}
+#feature p {
+    opacity: 0.7;
+}
+#usage video {
+    width: 50%;
+}
+#footer-area {
+    padding: 20px 0px;
+    margin-top: auto;
+}
+#footer-area li {
+    font-size: small;
+}
+#side {
+    text-align: center;
+    /* border: 1px solid red; */
+}
+#main {
+    /* border: 1px solid blue; */
+}

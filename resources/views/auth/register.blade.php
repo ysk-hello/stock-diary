@@ -61,6 +61,14 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <div class="col-md-6 offset-md-4">
+                                <p>
+                                    <a href="{{route('terms')}}" target="_blank">利用規約</a> 及び <a href="{{route('policy')}}" target="_blank">プライバシーポリシー</a> をご確認のうえ、同意いただける場合は「登録」ボタンをクリックしてください。
+                                </p>
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

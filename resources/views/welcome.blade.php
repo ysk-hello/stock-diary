@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="株日記,日記,ノート,株,取引,記録,振り返り">
+        <meta name="description" content="過去の株の取引を記録し振り返る。振り返ることで、自分の弱点が見えてくる。自分の取引を改善し、パフォーマンス向上！">
+        
+        <meta property="og:title" content="株日記">
+        <meta property="og:description" content="過去の株の取引を記録し振り返る。振り返ることで、自分の弱点が見えてくる。自分の取引を改善し、パフォーマンス向上！">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{url()->current()}}">
+        <meta property="og:image" content="{{asset('storage/images/ogp.png')}}">
+        <meta property="og:site_name" content="株日記">
+        <meta property="og:locale" content="ja_JP">
+        <!-- Twitterシェア時の表示形式指定 -->
+        <meta name="twitter:card" content="summary_large_image">
 
         <title>{{__('words.stock_diary')}}</title>
 
@@ -76,7 +88,7 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-md-2">
-                            <img src="{{asset('storage/images/diary.png')}}" alt="pc" id="diary-img">
+                            <img src="{{asset('storage/images/diary.png')}}" alt="diary" id="diary-img">
                         </div>
                         <div class="col-md-2">
                             <h5>{{__('words.company_diary')}}</h5>

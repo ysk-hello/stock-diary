@@ -1,0 +1,51 @@
+# php環境構築
+# https://idealump.com/service/lab/95
+# mkcert
+# https://zenn.dev/karubi69/articles/abfe239b43715c
+# https://zenn.dev/oppara/articles/docker-php-apache-mkcert
+
+version: '3'
+services:
+
+  #MySQL用コンテナ
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    # volumes:
+    #   - ./mysql:/var/lib/mysq
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=stock_diary   # ★変更必要
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test
+
+  #phpMyAdmin用コンテナ
+  phpmyadmin:
+    container_name: phpMyAdmin
+    depends_on:
+      - mysql
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+    restart: always
+    ports:
+      - "8080:80"
+
+  #php用コンテナ
+  php:
+    container_name: php-apache
+    build:
+      .
+    volumes:
+      - ./app:/var/www  # bind mount
+      - ./certs:/etc/ssl/local/certs  # bind mount
+      # ↓ dockerをはやくするために、vendorをmountから外す
+      #  https://zenn.dev/aldagram_tech/articles/110bc79925d41b
+      - /var/www/stock-diary/vendor  # volume（long syntaxで書いたほうがわかりやすい）
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - mysql
